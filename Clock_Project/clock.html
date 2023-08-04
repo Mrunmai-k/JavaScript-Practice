@@ -11,6 +11,18 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <title>Clock</title>
+    <script>
+        let a;
+        let date;
+        let time;
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        setInterval(() => {
+            a = new Date();
+            date = a.toLocaleDateString(undefined,options);
+            time = a.getHours() + ":" + a.getMinutes() + ":" + a.getSeconds();
+            document.getElementById('time').innerHTML = time + "<br>on " + date;
+        }, 1000);
+    </script>
 </head>
 
 <body>
@@ -54,12 +66,12 @@
 
     <div class="container my-4">
         <div class="jumbotron">
-            <h1 class="display-4">Current Time Is:</h1>
+            <h1 class="display-4">Current Time Is: <span id="time"></span></h1>
             <p class="lead">We have got you covered.</p>
             <hr class="my-4">
             <p>We are here to show you time of different countries.</p>
             <a class="btn btn-primary btn-lg" href="#" role="button">Browse Times</a>
-          </div>
+        </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
