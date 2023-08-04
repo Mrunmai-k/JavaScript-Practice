@@ -14,12 +14,26 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 
-document.addEventListener("DOMContentLoaded",function() {
-    const aboutLink = document.getElementById("about-link");
+window.onload = function() {
+    const clockContainer = document.getElementById("clock-container");
     const aboutSection = document.getElementById("about");
+
+    aboutSection.style.display = "none"; // Hide the About section by default
+    clockContainer.style.display = "block"; // Show the Clock container by default
+
+    const aboutLink = document.getElementById("about-link");
+    const clockLink = document.getElementById("clock-link");
 
     aboutLink.addEventListener("click", function(event) {
         event.preventDefault();
-        aboutSection.classList.toggle("show");
+        aboutSection.style.display = "block";
+        clockContainer.style.display = "none";
     });
-});
+
+    clockLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        aboutSection.style.display = "none";
+        clockContainer.style.display = "block";
+    });
+};
+
